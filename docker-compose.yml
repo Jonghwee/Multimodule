@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+    source-test:
+      image: adoptopenjdk/openjdk11:latest
+      build:
+        context: ./src/source
+        dockerfile: Dockerfile #이름이 Dockerfile이 아닐 경우 기입.
+      ports:
+        - "8881:8881"
+      expose:
+        - "8881"
+
+    target-test:
+      image: adoptopenjdk/openjdk11:latest
+      build:
+        context: ./src/target
+        dockerfile: Dockerfile #이름이 Dockerfile이 아닐 경우 기입.
+      ports:
+        - "8882:8881"
+      # "target:published" 컨테이너 내부 포트:호스트OS에서 공개할 포트
+      expose:
+        - "8882"
+
+
+
+
+
+
